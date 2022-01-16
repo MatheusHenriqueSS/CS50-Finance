@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <table class="table tablestriped">
+        <thead>
+            <tr>
+                <th class="text-start">Stock</th>
+                <th class="text-start">Operation</th>
+                <th class="text-start">Price</th>
+                <th class="text-start">Shares</th>
+                <th class="text-end">Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in rows %}
+                <tr>
+                    <td class="text-start">{{row.symbol}}</td>
+                    <td class="text-start">{{row.operation}}</td>
+                    <td class="text-start">{{row.price | usd}}</td>
+                    <td class="text-start">{{row.shares}}</td>
+                    <td class="text-end">{{row.time}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
